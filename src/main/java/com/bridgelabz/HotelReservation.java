@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class HotelReservation  implements hotelReservationIF
 {
-
     ArrayList<Hotel> hotelList = new ArrayList<Hotel>();
     Hotel hotel ;
 
@@ -54,20 +53,24 @@ public class HotelReservation  implements hotelReservationIF
 
         int cheapestRate = (int) (hotelList.get(0).getWeekDayRate() + hotelList.get(0).getWeekendRate());
         String cheapestHotel=hotelList.get(0).getHotelName();
+        int maxRating = hotelList.get(0).getRating();
         for (Hotel hotel : hotelList) {
             int rateForHotel = (int) ((weekdaysNumber * hotel.getWeekDayRate())
                     + (weekendsNumber * hotel.getWeekendRate()));
-            if (rateForHotel < cheapestRate) {
+            int ratingForHotel=hotel.getRating();
+            if (rateForHotel < cheapestRate){
                 cheapestRate = rateForHotel;
                 cheapestHotel = hotel.getHotelName();
+                maxRating=ratingForHotel;
+            } else if (rateForHotel == cheapestRate) {
+                if(hotel.getRating()>maxRating) {
+                    cheapestHotel = hotel.getHotelName();
+                    maxRating=ratingForHotel;
+                }
             }
         }
-
-
-        System.out.println("Cheapest Hotel : \n" + cheapestHotel + ", Total Rates: " + cheapestRate);
+        System.out.println("Cheapest Hotel : " + cheapestHotel + ", having rating: "+maxRating+" , Total Rates: " + cheapestRate);
         return cheapestHotel;
-
     }
-
 }
 
