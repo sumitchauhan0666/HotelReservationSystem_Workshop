@@ -1,5 +1,4 @@
 package com.bridgelabz;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -11,4 +10,6 @@ public interface hotelReservationIF
     public ArrayList<Hotel> getHotelList();
     public String getCheapestHotel(LocalDate startDate, LocalDate endDate);
 }
+
+
 

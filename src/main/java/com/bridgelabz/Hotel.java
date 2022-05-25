@@ -1,5 +1,4 @@
 package com.bridgelabz;
-
 public class Hotel
 {
     private String hotelName;
@@ -53,6 +52,7 @@ public class Hotel
         return "Hotel [hotelName=" + hotelName + ", rating=" + rating + ", weekDayRate=" + weekDayRate
                 + ", weekendRate=" + weekendRate + "]";
     }
+
 
 
 }
