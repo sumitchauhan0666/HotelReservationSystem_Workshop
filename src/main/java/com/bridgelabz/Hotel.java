@@ -1,6 +1,5 @@
 package com.bridgelabz;
 public class Hotel {
-
     private String hotelName;
     private int rating;
     private double weekDayRate;

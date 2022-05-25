@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class HotelReservation  implements hotelReservationIF
 {
-
     ArrayList<Hotel> hotelList = new ArrayList<>();
     Hotel hotel ;
 
