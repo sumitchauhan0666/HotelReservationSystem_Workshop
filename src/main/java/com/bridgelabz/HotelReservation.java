@@ -1,20 +1,17 @@
 package com.bridgelabz;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Optional;
 
 public class HotelReservation  implements hotelReservationIF
 {
     ArrayList<Hotel> hotelList = new ArrayList<>();
     Hotel hotel;
 
-    public void addHotel(String hotelName, int rate, double regularCustomerRate) {
+    public void addHotel(String hotelName, int rate, double weekdayRate, double weekndRate) {
         hotel = new Hotel();
         hotel.setHotelName(hotelName);
         hotel.setRate(rate);
-        hotel.setRegularCustomerCost(regularCustomerRate);
+        hotel.setWeekDayRate(weekdayRate);
+        hotel.setWeekendRate(weekndRate);
         hotelList.add(hotel);
     }
 
@@ -30,10 +27,5 @@ public class HotelReservation  implements hotelReservationIF
         return hotelList;
     }
 
-    public Hotel getCheapestHotel(LocalDate startDate, LocalDate endDate) {
-        //here i am using stream API
-        Optional<Hotel> resultList = hotelList.stream().min(Comparator.comparing(Hotel::getRegularCustomerCost));
-        return resultList.get();
-    }
 }
 

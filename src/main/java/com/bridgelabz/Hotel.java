@@ -2,17 +2,11 @@ package com.bridgelabz;
 
 public class Hotel
 {
-
     private String hotelName;
     private int rate;
-    private double regularCustomerCost;
+    private double weekDayRate;
+    private double weekendRate;
     public Hotel() {
-    }
-
-    public Hotel(String hotelName, int rate, double regularCustomerCost) {
-        this.hotelName = hotelName;
-        this.rate = rate;
-        this.regularCustomerCost = regularCustomerCost;
     }
 
     public String getHotelName() {
@@ -31,19 +25,26 @@ public class Hotel
         this.rate = rate;
     }
 
-    public double getRegularCustomerCost() {
-        return regularCustomerCost;
+    public double getWeekDayRate() {
+        return weekDayRate;
     }
 
-    public void setRegularCustomerCost(double regularCustomerCost) {
-        this.regularCustomerCost = regularCustomerCost;
+    public void setWeekDayRate(double weekDayRate) {
+        this.weekDayRate = weekDayRate;
+    }
+
+    public double getWeekendRate() {
+        return weekendRate;
+    }
+
+    public void setWeekendRate(double weekendRate) {
+        this.weekendRate = weekendRate;
     }
 
     @Override
     public String toString() {
-        return "Hotel [hotelName=" + hotelName + ", rating=" + rate + ", regularCustomerCost=" + regularCustomerCost
-                + "]";
+        return "Hotel [hotelName=" + hotelName + ", rating=" + rate + ", weekDayRate=" + weekDayRate
+                + ", weekendRate=" + weekendRate + "]";
     }
-
-
 }
+
