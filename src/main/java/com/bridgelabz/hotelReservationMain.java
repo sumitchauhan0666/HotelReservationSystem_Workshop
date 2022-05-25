@@ -7,6 +7,7 @@ import java.time.Month;
 public class hotelReservationMain
 {
     public static void main(String[] args)
+
     {
         hotelReservationIF hotelReservation = new HotelReservation();
         hotelReservation.addHotel("Lakewood", 3, 110,90,80,80);
