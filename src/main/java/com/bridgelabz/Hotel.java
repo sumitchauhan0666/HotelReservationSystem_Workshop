@@ -4,13 +4,14 @@ public class Hotel
 {
 
     private String hotelName;
-    private int rating;
+    private int rate;
     private double regularCustomerCost;
+    public Hotel() {
+    }
 
-    public Hotel(String hotelName, int rating, double regularCustomerCost)
-    {
+    public Hotel(String hotelName, int rate, double regularCustomerCost) {
         this.hotelName = hotelName;
-        this.rating = rating;
+        this.rate = rate;
         this.regularCustomerCost = regularCustomerCost;
     }
 
@@ -22,12 +23,12 @@ public class Hotel
         this.hotelName = hotelName;
     }
 
-    public int getRating() {
-        return rating;
+    public int getRate() {
+        return rate;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 
     public double getRegularCustomerCost() {
@@ -40,9 +41,9 @@ public class Hotel
 
     @Override
     public String toString() {
-        return "Hotel [hotelName=" + hotelName + ", rating=" + rating + ", regularCustomerCost=" + regularCustomerCost
+        return "Hotel [hotelName=" + hotelName + ", rating=" + rate + ", regularCustomerCost=" + regularCustomerCost
                 + "]";
     }
 
-}
 
+}
