@@ -1,10 +1,10 @@
 package com.bridgelabz;
-public class Hotel
-{
+public class Hotel {
     private String hotelName;
     private int rating;
     private double weekDayRate;
     private double weekendRate;
+
     public Hotel() {
     }
 
@@ -12,7 +12,7 @@ public class Hotel
         this.hotelName = hotelName;
         this.rating = rating;
         this.weekDayRate = weekDayRate;
-        this.weekendRate=weekendRate;
+        this.weekendRate = weekendRate;
     }
 
     public String getHotelName() {
@@ -52,7 +52,6 @@ public class Hotel
         return "Hotel [hotelName=" + hotelName + ", rating=" + rating + ", weekDayRate=" + weekDayRate
                 + ", weekendRate=" + weekendRate + "]";
     }
-
 
 
 }
