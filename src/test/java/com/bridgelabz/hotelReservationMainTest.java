@@ -3,9 +3,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 class hotelReservationMainTest
 {
-
     @Test
     public void givenHotelList_WhenAdded_shouldReturnProperHotelName(){
         hotelReservationIF hotelReservation = new HotelReservation();
@@ -18,7 +20,7 @@ class hotelReservationMainTest
     public void givenHotelList_WhenAdded_shouldReturnProperHotelRating(){
         hotelReservationIF hotelReservation = new HotelReservation();
         hotelReservation.addHotel("Bridgewood", 4, 150,50);
-        int hotelRating = hotelReservation.getHotelList().get(0).getRate();
+        int hotelRating = hotelReservation.getHotelList().get(0).getRating();
         assertEquals(4, hotelRating);
     }
 
@@ -37,7 +39,7 @@ class hotelReservationMainTest
         assertEquals(150, weekendRate);
     }
     @Test
-    public void givenHotelDetails_WhenSizeMatches_ShouldReturnTrue()
+    public void givenHotelDetails_WhenSizeMatches_ShoulReturnTrue()
     {
         hotelReservationIF hotelReservation = new HotelReservation();
         hotelReservation.addHotel("Lakewood", 3, 110,90);
@@ -46,5 +48,15 @@ class hotelReservationMainTest
         int hotelListSize = hotelReservation.getHotelListSize();
         assertEquals(3, hotelListSize);
     }
+    @Test
+    public void givenHotelDetails_shouldReturnCheapestHotel(){
 
+        HotelReservation hotelReservation = new HotelReservation();
+        hotelReservation.addHotel("Lakewood", 3, 110, 90);
+        hotelReservation.addHotel("Bridgewood", 4, 160, 50);
+        LocalDate startDate = LocalDate.of(2021, Month.SEPTEMBER, 10);
+        LocalDate endDate = LocalDate.of(2021, Month.SEPTEMBER, 12);
+        String hotelName = hotelReservation.getCheapestHotel(startDate, endDate);
+        assertEquals("Lakewood", hotelName);
+    }
 }
