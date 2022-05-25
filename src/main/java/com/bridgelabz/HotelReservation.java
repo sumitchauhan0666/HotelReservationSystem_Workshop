@@ -1,31 +1,23 @@
 package com.bridgelabz;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Comparator;
+import java.util.Optional;
 
 public class HotelReservation  implements hotelReservationIF
 {
-    String hotelName;
-    int rating;
-    double regularCustomerRate;
-    Scanner sc = new Scanner(System.in);
     ArrayList<Hotel> hotelList = new ArrayList<>();
     Hotel hotel;
-    public void addHotel() {
-        System.out.println("How many hotels you want to add");
-        int numOfHotels = sc.nextInt();
-        while(numOfHotels > 0) {
-            System.out.println("Enter hotel name:");
-            hotelName = sc.next();
-            System.out.println("Enter hotel rating:");
-            rating = sc.nextInt();
-            System.out.println("Enter regular customer rate:");
-            regularCustomerRate = sc.nextDouble();
-            hotel = new Hotel(hotelName,rating,regularCustomerRate);
-            hotelList.add(hotel);
-            numOfHotels--;
-        }
+
+    public void addHotel(String hotelName, int rate, double regularCustomerRate) {
+        hotel = new Hotel();
+        hotel.setHotelName(hotelName);
+        hotel.setRate(rate);
+        hotel.setRegularCustomerCost(regularCustomerRate);
+        hotelList.add(hotel);
     }
+
     public int getHotelListSize() {
         return hotelList.size();
     }
@@ -33,4 +25,15 @@ public class HotelReservation  implements hotelReservationIF
     public void printHotelList() {
         System.out.println(hotelList);
     }
+
+    public ArrayList<Hotel> getHotelList(){
+        return hotelList;
+    }
+
+    public Hotel getCheapestHotel(LocalDate startDate, LocalDate endDate) {
+        //here i am using stream API
+        Optional<Hotel> resultList = hotelList.stream().min(Comparator.comparing(Hotel::getRegularCustomerCost));
+        return resultList.get();
+    }
 }
+
